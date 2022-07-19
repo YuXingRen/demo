@@ -135,12 +135,12 @@ export default {
   methods: {
     confirm() {
       if (this.operateType === 'edit') {
-        this.$http.post("/api/user/edit", this.operateForm).then(() => {
+        this.$http.post("/user/edit", this.operateForm).then(() => {
           this.isShow = false
           this.getList()
         })
       } else {
-        this.$http.post("/api/user/add", this.operateForm).then(()=> {
+        this.$http.post("/user/add", this.operateForm).then(()=> {
               this.isShow = false
               this.getList()
             }
@@ -170,7 +170,7 @@ export default {
         type:"warning"
       }).then(()=>{
         const id=row.id
-        this.$http.get("/api/user/del",{
+        this.$http.get("/user/del",{
           params:{id}
         }).then(()=>{
           this.$message({
@@ -188,6 +188,7 @@ export default {
         page: this.config.page,
         name
       }).then(res => {
+        console.log(res,'res')
         this.tableData =res.list.map(item => {
           item.sexLabel = item.sex === 0 ? "女" : "男";
           return item
