@@ -135,12 +135,12 @@ export default {
   methods: {
     confirm() {
       if (this.operateType === 'edit') {
-        this.$http.post("/api/user/edit", this.operateForm).then(res => {
+        this.$http.post("/api/user/edit", this.operateForm).then(() => {
           this.isShow = false
           this.getList()
         })
       } else {
-        this.$http.post("/api/user/add", this.operateForm).then(res => {
+        this.$http.post("/api/user/add", this.operateForm).then(()=> {
               this.isShow = false
               this.getList()
             }

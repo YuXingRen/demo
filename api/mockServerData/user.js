@@ -36,8 +36,8 @@ export default {
   /**
    * 获取列表
    * 要带参数 name, page, limt; name可以不填, page,limit有默认值。
-   * @param name, page, limit
    * @return {{code: number, count: number, data: *[]}}
+   * @param config
    */
   getUserList: config => {
     const { name, page = 1, limit = 20 } = param2Obj(config.url)
@@ -55,8 +55,8 @@ export default {
   },
   /**
    * 增加用户
-   * @param name, addr, age, birth, sex
    * @return {{code: number, data: {message: string}}}
+   * @param config
    */
   createUser: config => {
     const { name, addr, age, birth, sex } = JSON.parse(config.body)
@@ -78,8 +78,8 @@ export default {
   },
   /**
    * 删除用户
-   * @param id
    * @return {*}
+   * @param config
    */
   deleteUser: config => {
     const { id } = param2Obj(config.url)
@@ -114,8 +114,8 @@ export default {
   },
   /**
    * 修改用户
-   * @param id, name, addr, age, birth, sex
    * @return {{code: number, data: {message: string}}}
+   * @param config
    */
   updateUser: config => {
     const { id, name, addr, age, birth, sex } = JSON.parse(config.body)
