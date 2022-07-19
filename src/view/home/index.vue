@@ -120,9 +120,7 @@ export default {
   mounted() {
     getData().then(res => {
       const {code, data} = res;
-      console.log(res)
       if (code === 20000) {
-        console.log(res,"data 1")
         this.tableData = data.tableData;
         const order = data.orderData;
         const xData = order.date;

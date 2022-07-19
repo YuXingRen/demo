@@ -23,6 +23,10 @@ export default {
             } else {
                 state.currentMenu = null
             }
+        },
+        closeTag(state, val) {
+            const result = state.tabList.findIndex(item => item.name === val.name)
+            state.tabList.splice(result, 1)
         }
     }
 }

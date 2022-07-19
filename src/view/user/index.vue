@@ -137,13 +137,11 @@ export default {
       if (this.operateType === 'edit') {
         this.$http.post("/api/user/edit", this.operateForm).then(res => {
           this.isShow = false
-          console.log(res)
           this.getList()
         })
       } else {
         this.$http.post("/api/user/add", this.operateForm).then(res => {
               this.isShow = false
-              console.log(res)
               this.getList()
             }
         )
@@ -172,7 +170,6 @@ export default {
         type:"warning"
       }).then(()=>{
         const id=row.id
-        console.log(row,"row")
         this.$http.get("/api/user/del",{
           params:{id}
         }).then(()=>{
@@ -191,7 +188,6 @@ export default {
         page: this.config.page,
         name
       }).then(res => {
-        console.log(res,'res')
         this.tableData =res.list.map(item => {
           item.sexLabel = item.sex === 0 ? "女" : "男";
           return item

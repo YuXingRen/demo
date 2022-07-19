@@ -25,11 +25,11 @@ class HttpRequest {
     });
 
     instance.interceptors.response.use(function (response) {
-      console.log('处理相应');
+      //console.log('处理相应');
       // 对响应数据做点什么
       return response.data;
     }, function (error) {
-      console.log(error);
+      //console.log(error);
       // 对响应错误做点什么
       return Promise.reject(error);
     });
